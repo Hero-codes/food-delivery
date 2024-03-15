@@ -1,0 +1,16 @@
+{
+  "id": "mig_cnq6pd86bd2ce5jmdhog",
+  "parentID": "mig_cnq6p5qjudikupjdq0o0",
+  "checksum": "1:9618f7c27f337d0e3201c22bf382d757b0fdb7c9eb4083730fbfe9d92dfb8c94",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "user_id",
+          "type": "string"
+        },
+        "table": "restaurants"
+      }
+    }
+  ]
+}

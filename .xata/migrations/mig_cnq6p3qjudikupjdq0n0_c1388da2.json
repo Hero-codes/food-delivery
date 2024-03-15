@@ -1,0 +1,16 @@
+{
+  "id": "mig_cnq6p3qjudikupjdq0n0",
+  "parentID": "mig_cnq6p186bd2ce5jmdhng",
+  "checksum": "1:c1388da218a7deba50ec896b8e5c426db5a01b9cb408b5c6c05ecc3b54dc5364",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "shopOpenTime",
+          "type": "string"
+        },
+        "table": "restaurants"
+      }
+    }
+  ]
+}

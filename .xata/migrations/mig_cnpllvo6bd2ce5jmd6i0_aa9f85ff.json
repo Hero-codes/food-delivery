@@ -1,0 +1,12 @@
+{
+  "id": "mig_cnpllvo6bd2ce5jmd6i0",
+  "parentID": "mig_cnpllt5odj8dlt2gr5cg",
+  "checksum": "1:aa9f85ff987183bb4692f1c0da55cefd999458958f77c7063787cb036cb29e38",
+  "operations": [
+    {
+      "addTable": {
+        "table": "restaurants"
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "mig_cnq6p5qjudikupjdq0o0",
+  "parentID": "mig_cnq6p3qjudikupjdq0n0",
+  "checksum": "1:04ece4f6590f2ebaef09f8de36e36d8c9b6b5f2612c4c28caefe934c95d70df7",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "shopCloseTime",
+          "type": "string"
+        },
+        "table": "restaurants"
+      }
+    }
+  ]
+}

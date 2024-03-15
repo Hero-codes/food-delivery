@@ -1,0 +1,16 @@
+{
+  "id": "mig_cnq6p186bd2ce5jmdhng",
+  "parentID": "mig_cnq6ov2judikupjdq0m0",
+  "checksum": "1:dce2f1a65ec36f1958a402adb9108383577f0800689ad7548164edbd0b814d6f",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "shopImg",
+          "type": "string"
+        },
+        "table": "restaurants"
+      }
+    }
+  ]
+}
