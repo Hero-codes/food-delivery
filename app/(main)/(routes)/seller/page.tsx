@@ -14,8 +14,15 @@ import { z } from "zod"
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Dropzone } from '@/components/shared/dropzone';
+import { uploadRestaurant } from '@/lib/actions/form.action';
+import { useState } from 'react';
+import { useEdgeStore } from '@/lib/edgestore';
+import { toast } from 'sonner';
 
 const BecomeASellerPage = () => {
+
+    const [file, setFile] = useState<File>();
+    const { edgestore } = useEdgeStore();
 
     const formSchema = z.object({
         shopName: z.string(),
@@ -37,11 +44,30 @@ const BecomeASellerPage = () => {
     })
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
+        try {
+            let res;
 
+            if (file) {
+                res = await edgestore.publicFiles.upload({
+                    file,
+                });
+            }
 
-
-        console.log(values);
-        form.reset();
+            if (res) {
+                await uploadRestaurant({
+                    shopName: values.shopName,
+                    shopAddress: values.shopAddress,
+                    shopOpenTime: values.shopOpenTime,
+                    shopCloseTime: values.shopCloseTime,
+                    shopImg: res.url
+                });
+            };
+            toast.success("Form Submitted! 🎉 Kudos")
+            form.reset();
+        } catch (error) {
+            console.log(error);
+            toast.error("There was an error in submitting the form! Retry.")
+        }
     }
 
     return (
@@ -114,7 +140,10 @@ const BecomeASellerPage = () => {
                             <FormItem className="w-full">
                                 <FormLabel>Shop Image</FormLabel>
                                 <FormControl className='h-72 w-full'>
-                                    <Dropzone />
+                                    <Dropzone
+                                        setFile={setFile}
+                                        file={file}
+                                        {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -128,7 +157,7 @@ const BecomeASellerPage = () => {
                         className='col-span-2 w-full'>
                         {form.formState.isSubmitting ? (
                             "Submitting..."
-                        ) : "Publish Hotel"}
+                        ) : "Publish Restaurant"}
                     </Button>
 
                 </form>

@@ -1,12 +1,6 @@
+import { FoodCardProps } from "@/lib/types";
 import Image from "next/image"
 import Link from "next/link";
-
-interface FoodCardProps {
-    title: string,
-    price: number,
-    description: string,
-    imgUrl?: string
-}
 
 export const FoodCard = ({ description, price, title, imgUrl }: FoodCardProps) => {
     return (
@@ -15,7 +9,7 @@ export const FoodCard = ({ description, price, title, imgUrl }: FoodCardProps) =
                 <div className='max-w-md mx-auto'>
                     <div className='h-[236px]'>
                         <Image
-                            className="w-full h-full bg-center bg-contain"
+                            className="w-full h-full object-cover object-center"
                             src="/food1.jpeg"
                             alt="next"
                             width={100}
@@ -30,7 +24,7 @@ export const FoodCard = ({ description, price, title, imgUrl }: FoodCardProps) =
                         <p className='text-[#7C7C80] dark:text-lime-300 font-[15px] mt-6'>{description}</p>
 
                         <Link href="" className='block mt-10 w-full px-4 py-3 font-medium tracking-wide text-center capitalize transition-colors duration-300 transform bg-[#FFC933] dark:bg-blue-700 rounded-[14px] hover:bg-[#FFC933DD] focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-80'>
-                            View on foodies
+                            Add To Cart
                         </Link>
                     </div>
                 </div>

@@ -43,7 +43,13 @@ export default function Home() {
           <div className="grid grid-cols-1 mt-7 gap-x-3 sm:grid-cols-2 md:grid-cols-3">
 
             <div className="flex shadow-lg rounded-md items-center p-6 flex-col gap-y-5">
-              <Image src="/food1.jpeg" className="w-full" alt="food" width={50} height={50} />
+              <div className="relative h-48 w-48">
+                <Image
+                  src="/voucher.png"
+                  className="object-center object-contain"
+                  alt="food"
+                  fill />
+              </div>
 
               <div className="flex flex-col gap-y-3">
                 <span className="text-center font-semibold text-lg">Discount voucher</span>
@@ -52,7 +58,13 @@ export default function Home() {
             </div>
 
             <div className="flex shadow-lg rounded-md items-center p-6 flex-col gap-y-5">
-              <Image src="/food1.jpeg" className="w-full" alt="food" width={50} height={50} />
+              <div className="relative h-48 w-48">
+                <Image
+                  src="/delivery.png"
+                  className="object-center object-contain"
+                  alt="food"
+                  fill />
+              </div>
 
               <div className="flex flex-col gap-y-3">
                 <span className="text-center font-semibold text-lg">Fastest Delivery</span>
@@ -61,7 +73,13 @@ export default function Home() {
             </div>
 
             <div className="flex shadow-lg rounded-md items-center p-6 flex-col gap-y-5">
-              <Image src="/food1.jpeg" className="w-full" alt="food" width={50} height={50} />
+              <div className="relative h-48 w-48">
+                <Image
+                  src="/healthy.png"
+                  className="object-center object-contain"
+                  alt="food"
+                  fill />
+              </div>
 
               <div className="flex flex-col gap-y-3">
                 <span className="text-center font-semibold text-lg">Fresh Healthy Food</span>
