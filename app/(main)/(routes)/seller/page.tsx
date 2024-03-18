@@ -14,7 +14,7 @@ import { z } from "zod"
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Dropzone } from '@/components/shared/dropzone';
-import { uploadRestaurant } from '@/lib/actions/form.action';
+import { uploadRestaurant } from '@/lib/actions/restaurant.action';
 import { useState } from 'react';
 import { useEdgeStore } from '@/lib/edgestore';
 import { toast } from 'sonner';

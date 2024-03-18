@@ -1,13 +1,12 @@
 import { RestaurantCard } from "@/components/shared/restuarant-card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { getRestaurants } from "@/lib/actions/form.action"
+import { getRestaurants } from "@/lib/actions/restaurant.action"
 import { Search } from "lucide-react"
 
 export const dynamic = 'force-dynamic'
 
 const Restaurant = async () => {
-
     const restaurants = await getRestaurants();
 
     return (
@@ -16,7 +15,11 @@ const Restaurant = async () => {
 
             <div className="flex flex-col">
                 <form className="flex items-center relative">
-                    <Input name="search" placeholder="Search Your Favoraite Restuarants..." className="rounded-full" />
+                    <Input
+                        name="search"
+                        placeholder="Search Your Favoraite Restuarants..."
+                        className="rounded-full"
+                    />
                     <Button type="submit" className="p-0" variant="ghost">
                         <Search className="absolute right-4" />
                     </Button>
@@ -26,7 +29,8 @@ const Restaurant = async () => {
                     {restaurants?.map(restaurant => (
                         <RestaurantCard
                             buttonText="View Menu"
-                            restaurant={restaurant} />
+                            restaurant={restaurant}
+                        />
                     ))}
                 </div>
 

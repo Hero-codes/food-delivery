@@ -18,7 +18,35 @@ const tables = [
       { name: "user_id", type: "string" },
     ],
   },
-  { name: "orders", columns: [] },
+  {
+    name: "orders",
+    columns: [
+      { name: "order_imgUrl", type: "string" },
+      { name: "order_price", type: "int" },
+      { name: "order_name", type: "string" },
+      { name: "order_description", type: "string" },
+    ],
+  },
+  {
+    name: "user",
+    columns: [
+      { name: "user_id", type: "string" },
+      { name: "address", type: "string" },
+      { name: "city", type: "string" },
+      { name: "country", type: "string" },
+      { name: "order_no", type: "int" },
+    ],
+  },
+  {
+    name: "dishes",
+    columns: [
+      { name: "dishName", type: "string" },
+      { name: "dishDescription", type: "string" },
+      { name: "dishPhoto", type: "string" },
+      { name: "dishPrice", type: "int" },
+      { name: "restaurant_id", type: "string" },
+    ],
+  },
 ] as const;
 
 export type SchemaTables = typeof tables;
@@ -30,9 +58,17 @@ export type RestaurantsRecord = Restaurants & XataRecord;
 export type Orders = InferredTypes["orders"];
 export type OrdersRecord = Orders & XataRecord;
 
+export type User = InferredTypes["user"];
+export type UserRecord = User & XataRecord;
+
+export type Dishes = InferredTypes["dishes"];
+export type DishesRecord = Dishes & XataRecord;
+
 export type DatabaseSchema = {
   restaurants: RestaurantsRecord;
   orders: OrdersRecord;
+  user: UserRecord;
+  dishes: DishesRecord;
 };
 
 const DatabaseClient = buildClient();

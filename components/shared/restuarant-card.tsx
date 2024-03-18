@@ -14,7 +14,7 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
-import { deleteRestaurant } from "@/lib/actions/form.action";
+import { deleteRestaurant } from "@/lib/actions/restaurant.action";
 import { toast } from "sonner";
 import { useEdgeStore } from "@/lib/edgestore";
 
@@ -50,9 +50,16 @@ export const RestaurantCard = ({ restaurant, buttonText, showDeleteButton }: Res
                 <span className="md:text-lg text-sm font-semibold text-muted-foreground">Open Time: {restaurant.shopOpenTime}</span>
                 <span className="md:text-lg text-sm font-semibold text-muted-foreground">Close time: {restaurant.shopCloseTime}</span>
 
-                <Link href={`/restaurants/${restaurant.id}`}>
+                {!showDeleteButton && <Link href={`/restaurants/${restaurant.id}`}>
                     <Button size="sm" className="w-full mb-1">{buttonText}</Button>
-                </Link>
+                </Link>}
+
+                {showDeleteButton && (
+                    <Link href={`/restaurants/${restaurant.id}/menu-edit`}>
+                        <Button size="sm" className="w-full mb-1">{buttonText}</Button>
+                    </Link>
+                )}
+
                 {showDeleteButton && (
                     <AlertDialog>
                         <AlertDialogTrigger className="bg-red-600 rounded-lg p-1.5 text-white">Delete Restaurant</AlertDialogTrigger>

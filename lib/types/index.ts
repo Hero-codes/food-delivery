@@ -1,5 +1,7 @@
 import { RestaurantsRecord } from "@/src/xata";
 
+//? Restaurant Props
+
 export type FormProps = {
     shopName: string;
     shopAddress: string;
@@ -19,4 +21,14 @@ export type RestaurantCardProps = {
     restaurant: RestaurantsRecord,
     buttonText: string,
     showDeleteButton?: boolean
+}
+
+//? Dishes Props
+
+export type CreateDishProps = {
+    restaurantId: string;
+    dishName: string;
+    dishDescription: string;
+    dishPhoto: string;
+    dishPrice: number;
 }
