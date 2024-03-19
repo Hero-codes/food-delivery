@@ -34,7 +34,6 @@ const tables = [
       { name: "address", type: "string" },
       { name: "city", type: "string" },
       { name: "country", type: "string" },
-      { name: "order_no", type: "int" },
     ],
   },
   {

@@ -31,4 +31,13 @@ export type CreateDishProps = {
     dishDescription: string;
     dishPhoto: string;
     dishPrice: number;
+};
+
+//? User Props
+
+export type UpdateUserProps = {
+    user_id: string,
+    address: string,
+    city: string,
+    country: string,
 }

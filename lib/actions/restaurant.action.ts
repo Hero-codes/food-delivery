@@ -63,9 +63,23 @@ export const deleteRestaurant = async (id: string) => {
 
         if (user?.user_id !== userId) throw new Error("Not Authorized!");
 
+        const records = await xata.db.dishes.filter({
+            restaurant_id: id,
+        }).getAll();
+
+        const toDelete = records.map(rec => {
+            return {
+                delete: {
+                    table: "dishes" as const,
+                    id: rec.id
+                }
+            }
+        })
+
+        const page = await xata.transactions.run(toDelete);
         const record = await xata.db.restaurants.delete(id);
+
         revalidatePath("/user/profile")
-        return record;
     } catch (error) {
         console.log(error);
     };

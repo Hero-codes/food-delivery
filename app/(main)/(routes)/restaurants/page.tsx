@@ -28,8 +28,9 @@ const Restaurant = async () => {
                 <div className="flex mt-10 flex-col gap-y-6">
                     {restaurants?.map(restaurant => (
                         <RestaurantCard
+                            key={restaurant.id}
                             buttonText="View Menu"
-                            restaurant={restaurant}
+                            restaurant={JSON.parse(JSON.stringify(restaurant))}
                         />
                     ))}
                 </div>

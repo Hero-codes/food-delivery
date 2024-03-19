@@ -114,11 +114,18 @@ const MenuEditPage = () => {
                         <FormField
                             control={menu.control}
                             name="dishPrice"
-                            render={({ field }) => (
+                            render={({ field: { onChange, ...field } }) => (
                                 <FormItem className="w-full">
                                     <FormLabel>Dish Price</FormLabel>
                                     <FormControl>
-                                        <Input type="number" placeholder="Dish Price" {...field} />
+                                        <Input
+                                            type="number"
+                                            placeholder="Dish Price"
+                                            {...field}
+                                            onChange={(e) => {
+                                                onChange(parseInt(e.target.value, 10) || 0);
+                                            }}
+                                        />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>

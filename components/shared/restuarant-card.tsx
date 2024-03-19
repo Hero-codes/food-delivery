@@ -33,8 +33,7 @@ export const RestaurantCard = ({ restaurant, buttonText, showDeleteButton }: Res
     }
 
     return (
-        <div key={restaurant.id}
-            className="flex p-2 shadow-md rounded-md flex-col md:flex-row gap-x-3 md:h-56 w-full">
+        <div className="flex p-2 shadow-md rounded-md flex-col md:flex-row gap-x-3 md:h-56 w-full">
             <div className="md:h-full h-40 relative w-full md:w-1/3">
                 <Image
                     src={`${restaurant.shopImg}`}

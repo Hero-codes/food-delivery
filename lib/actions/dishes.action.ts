@@ -6,7 +6,6 @@ import { revalidatePath } from "next/cache";
 
 export const uploadDish = async (values: CreateDishProps) => {
     const xata = getXataClient();
-    console.log('*** Saving to Xata ***') // the new line!
     try {
         const record = await xata.db.dishes.create({
             dishDescription: values.dishDescription,
@@ -17,7 +16,6 @@ export const uploadDish = async (values: CreateDishProps) => {
         });
 
         revalidatePath(`/restaurants/${values.restaurantId}`);
-        console.log(record)
     } catch (error) {
         console.log(error);
     };
